@@ -20,8 +20,8 @@ It is a system that integrates the functionalities to efficiently manage blood s
    String username1 = "postgres";
    String password1 = "123";
 ```
-  change the following according to the database same goes for query tables 
--
+change the following according to the database same goes for query tables 
+
 - Run the program
 
 ## License

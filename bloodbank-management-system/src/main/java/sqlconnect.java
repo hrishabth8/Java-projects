@@ -3,7 +3,7 @@ public class sqlconnect {
 	public Connection connect() {
 		Connection db= null;
 		try {
-			db = DriverManager.getConnection("jdbc:postgresql://localhost/bloodbank", "postgres", "987987");
+			db = DriverManager.getConnection("jdbc:postgresql://localhost/bloodbank", "postgres", "123");
 			if(db!=null)
 				System.out.println("Connected!");
 			}catch(Exception e) {

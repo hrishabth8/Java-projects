@@ -39,12 +39,16 @@ public class Donate_Blood extends JFrame {
 
 	public static void main(String[] args) {
 		
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
 				try {
 					Donate_Blood frame = new Donate_Blood();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
+			}
+		});
 	}
 
 	
@@ -246,10 +250,10 @@ public class Donate_Blood extends JFrame {
 			try {
 				Connection c = null;
 				Statement st = null;
-//				ResultSet rs = null;
-				String url = "jdbc:postgresql://localhost:5432/bloodbank";
+				ResultSet rs = null;
+				String url = "jdbc:postgresql://localhost:5433/bloodbank";
 				String username1 = "postgres";
-				String password1 = "987987";
+				String password1 = "123";
 				Class.forName("org.postgresql.Driver");
 				c = DriverManager.getConnection(url, username1, password1);
 				c.setAutoCommit(false);
@@ -257,7 +261,7 @@ public class Donate_Blood extends JFrame {
 
 				ResultSet rsq = null;
 //						String sql = "INSERT INTO logindetails VALUES('"+s1+"','"+s2+"','"+s4+"','"+s5+"');";
-				String sql = "insert into donate values('" + email + "','" + date + "','" + time + "','" + pin + "','" + hid + "','" + pass + "');";
+				String sql = "insert into blood_donation_slots values('" + email + "','" + date + "','" + time + "','" + pin + "','" + hid + "','" + pass + "');";
 
 				System.out.println(sql);
 				st.executeUpdate(sql);

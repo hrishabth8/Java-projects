@@ -25,12 +25,16 @@ public class Login1 extends JFrame {
 
 
 	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
 				try {
 					Login1 frame = new Login1();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
+			}
+		});
 	}
 /* =================================================================================================================================================================================*/
 	public Login1() {
@@ -125,11 +129,11 @@ public class Login1 extends JFrame {
 			public void actionPerformed(ActionEvent e) { /**The actionPerformed method is called when the button is clicked. It calls*/
 				try {
 					newuser.main(null);
-				}
-//				catch (EncryptedDocumentException e1) {
-//					e1.printStackTrace();
-//				}
-				catch (NullPointerException e1) {
+				} catch (EncryptedDocumentException e1) {
+
+					e1.printStackTrace();
+				} catch (NullPointerException e1) {
+
 					e1.printStackTrace();
 				}
 				dispose();
@@ -200,9 +204,9 @@ public class Login1 extends JFrame {
 			Connection c=null;
 			Statement st = null; // used to execute sql queries
 			ResultSet rs = null; //used to access the data returned by sql command
-			String url = "jdbc:postgresql://localhost:5432/bloodbank";
+			String url = "jdbc:postgresql://localhost:5433/bloodbank";
 			String username1 = "postgres";
-			String password1 = "987987";
+			String password1 = "123";
 			Class.forName("org.postgresql.Driver");
 			c = DriverManager.getConnection(url, username1, password1);
 			c.setAutoCommit(false);

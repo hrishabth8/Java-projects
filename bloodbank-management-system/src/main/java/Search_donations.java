@@ -33,12 +33,16 @@ public class Search_donations extends JFrame {
 	private String excelFilePath;
 
 	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
 				try {
 					Search_donations frame = new Search_donations();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
+			}
+		});
 	}
 
 	public Search_donations() {
@@ -127,14 +131,14 @@ public class Search_donations extends JFrame {
 				{
 					System.out.println("Error in loading driver");
 				}
-				String url="jdbc:postgresql://localhost:5432/bloodbank";
+				String url="jdbc:postgresql://localhost:5433/bloodbank";
 				String name="postgres";
-				String pass="987987";
+				String pass="123";
 				Connection con;
 				try {
 					con = DriverManager.getConnection(url,name,pass);
 					PreparedStatement st = (PreparedStatement) con
-							.prepareStatement("Select date,time from donate where email_id =?");
+							.prepareStatement("Select date,time from blood_donation_slots where email_id =?");
 
 					st.setString(1, r1);
 

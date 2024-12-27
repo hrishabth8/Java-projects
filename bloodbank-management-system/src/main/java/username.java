@@ -17,17 +17,22 @@ import javax.swing.border.LineBorder;
 public class username extends JFrame {
 	private CellStyle cellstyle;
 	private Color mycolor;
+	private String excelFilePath;
 	private JPanel contentPane;
 	private JTextField textField;
 	private JPasswordField passwordField;
 
 	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
 				try {
 					username frame = new username();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
+			}
+		});
 	}
 
 	public username() {
@@ -98,9 +103,9 @@ public class username extends JFrame {
 					Statement st = null;
 					ResultSet rs = null;
 
-					String url = "jdbc:postgresql://localhost:5432/bloodbank";
+					String url = "jdbc:postgresql://localhost:5433/bloodbank";
 					String username1 = "postgres";
-					String password1 = "987987";
+					String password1 = "123";
 					Class.forName("org.postgresql.Driver");
 					c = DriverManager.getConnection(url, username1, password1);
 					c.setAutoCommit(false);
@@ -211,9 +216,9 @@ public class username extends JFrame {
 			Connection c=null;
 			Statement st = null;
 			ResultSet rs = null;
-			String url = "jdbc:postgresql://localhost:5432/bloodbank";
+			String url = "jdbc:postgresql://localhost:5433/bloodbank";
 			String username1 = "postgres";
-			String password1 = "987987";
+			String password1 = "123";
 			Class.forName("org.postgresql.Driver");
 			c = DriverManager.getConnection(url, username1, password1);
 			c.setAutoCommit(false);

@@ -155,9 +155,9 @@ public class Search_requests extends JFrame {
 				{
 					System.out.println("Error in loading driver");
 				}
-				String url="jdbc:postgresql://localhost:5432/bloodbank";
+				String url="jdbc:postgresql://localhost:5433/bloodbank";
 				String name="postgres";
-				String pass="987987";
+				String pass="123";
 				Connection con;
 				try {
 					con = DriverManager.getConnection(url,name,pass);

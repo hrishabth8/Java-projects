@@ -1,5 +1,3 @@
-import org.apache.commons.math3.analysis.function.Log;
-
 import java.awt.EventQueue;
 
 import javax.swing.*;
@@ -23,12 +21,16 @@ public class Change_password extends JFrame {
 	private JTextField textField_2;
 
 	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
 				try {
 					Change_password frame = new Change_password();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
+			}
+		});
 	}
 
 	public Change_password() {
@@ -187,9 +189,9 @@ public class Change_password extends JFrame {
 			Statement st = null;
 			ResultSet rs = null;
 //			ResultSet rs1 = null;
-			String url = "jdbc:postgresql://localhost:5432/bloodbank";
+			String url = "jdbc:postgresql://localhost:5433/bloodbank";
 			String username1 = "postgres";
-			String password1 = "987987";
+			String password1 = "123";
 			Class.forName("org.postgresql.Driver");
 			c = DriverManager.getConnection(url, username1, password1);
 			c.setAutoCommit(false);
@@ -219,9 +221,9 @@ public class Change_password extends JFrame {
 				Statement st = null;
 				ResultSet rs = null;
 
-				String url = "jdbc:postgresql://localhost:5432/bloodbank";
+				String url = "jdbc:postgresql://localhost:5433/bloodbank";
 				String username1 = "postgres";
-				String password1 = "987987";
+				String password1 = "123";
 				Class.forName("org.postgresql.Driver");
 				c = DriverManager.getConnection(url, username1, password1);
 				c.setAutoCommit(false);
@@ -230,7 +232,7 @@ public class Change_password extends JFrame {
 //						String sql = "INSERT INTO logindetails VALUES('"+s1+"','"+s2+"','"+s4+"','"+s5+"');";
 				String sql = "update login set password = '"+newpass+"' where email_id='"+email+"'";
 				st.executeUpdate(sql);
-				Login1.main(null);
+				username.main(null);
 				dispose();
 				c.commit();
 

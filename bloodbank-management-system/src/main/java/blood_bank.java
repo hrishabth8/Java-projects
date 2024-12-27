@@ -38,12 +38,16 @@ public class blood_bank extends JFrame {
 
 
     public static void main(String[] args) {
+        EventQueue.invokeLater(new Runnable() {
+            public void run() {
                 try {
                     blood_bank frame = new blood_bank();
                     frame.setVisible(true);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
+            }
+        });
     }
 
     public blood_bank() {
@@ -247,9 +251,9 @@ public class blood_bank extends JFrame {
                 Connection c=null;
                 Statement st = null;
                 ResultSet rs = null;
-                String url = "jdbc:postgresql://localhost:5432/bloodbank";
+                String url = "jdbc:postgresql://localhost:5433/bloodbank";
                 String username1 = "postgres";
-                String password1 = "987987";
+                String password1 = "123";
                 Class.forName("org.postgresql.Driver");
                 c = DriverManager.getConnection(url, username1, password1);
                 c.setAutoCommit(false);

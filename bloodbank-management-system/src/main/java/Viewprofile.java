@@ -42,13 +42,16 @@ public class Viewprofile extends JFrame {
 
 
 	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
 				try {
 					Viewprofile frame = new Viewprofile();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-
+			}
+		});
 	}
 
 
@@ -162,9 +165,9 @@ public class Viewprofile extends JFrame {
 				{
 					System.out.println("Error in loading driver");
 				}
-				String url="jdbc:postgresql://localhost:5432/bloodbank";
+				String url="jdbc:postgresql://localhost:5433/bloodbank";
 				String name="postgres";
-				String pass="987987";
+				String pass="123";
 				Connection con;
 				try {
 

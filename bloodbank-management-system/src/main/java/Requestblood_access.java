@@ -412,9 +412,9 @@ public class Requestblood_access extends JFrame {
 			Statement st = null;
 			ResultSet rs = null;
 
-			String url = "jdbc:postgresql://localhost:5432/bloodbank";
+			String url = "jdbc:postgresql://localhost:5433/bloodbank";
 			String username1 = "postgres";
-			String password1 = "987987";
+			String password1 = "123";
 			Class.forName("org.postgresql.Driver");
 			c = DriverManager.getConnection(url, username1, password1);
 			c.setAutoCommit(false);

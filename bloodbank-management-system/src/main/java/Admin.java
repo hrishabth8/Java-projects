@@ -28,15 +28,19 @@ import java.awt.FontFormatException;
 public class Admin extends JFrame {
 
 	private JPanel contentPane;
-	private JButton btnNewButton_hosp_del;
+	//Font Beautiful;
 
 	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
 				try {
 					Admin frame = new Admin();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
+			}
+		});
 	}
 
 	// for hovering funtion
@@ -149,12 +153,10 @@ public class Admin extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					edit_bloodstock.main(null);
-				}
-//				catch (EncryptedDocumentException e1) {
-//
-//					e1.printStackTrace();
-//				}
-				catch (Exception e1) {
+				} catch (EncryptedDocumentException e1) {
+					
+					e1.printStackTrace();
+				} catch (Exception e1) {
 					
 					e1.printStackTrace();
 				}
@@ -301,44 +303,9 @@ public class Admin extends JFrame {
 
 		contentPane.add(btnNewButton_hosp);
 
-/* ==========================================================================================================================================================*/
-/*  ========================================================================================================================================================*/
-// hospital deletion button and function
-
-		btnNewButton_hosp_del = new JButton("Hospital Deletion");
-		btnNewButton_hosp_del.setBackground(new java.awt.Color(75, 128, 215));
-		btnNewButton_hosp_del.setForeground(new java.awt.Color(255, 255, 255));
-		btnNewButton_hosp_del.setBorder(new EmptyBorder(1, 1, 1, 1));
-		btnNewButton_hosp_del.setFont(new Font("Lucida Grande", Font.BOLD | Font.ITALIC, 25));
-		btnNewButton_hosp_del.setBounds(230, 420, 230, 52);
 
 
-		btnNewButton_hosp_del.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				btnNewButton_hosp_del.setBackground(new java.awt.Color(25, 102, 224));
-				btnNewButton_hosp_del.setForeground(new java.awt.Color(255, 255, 255));
-				//btnNewButton.setBorder(BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255),1));
-
-			}
-			@Override
-			public void mouseExited(MouseEvent e) {
-				btnNewButton_hosp_del.setBackground(new java.awt.Color(75, 128, 215));
-				btnNewButton_hosp_del.setForeground(new java.awt.Color(255, 255, 255));
-				//btnNewButton.setBorder(new EmptyBorder(1,1,1,1));
-			}
-		});
-
-		btnNewButton_hosp_del.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				delete_hosp.main(null);
-				dispose();
-			}
-		});
-
-		contentPane.add(btnNewButton_hosp_del);
-
-/* ==========================================================================================================================================================*/
+		/* ==========================================================================================================================================================*/
 /*  ========================================================================================================================================================*/
 
 		// logout button

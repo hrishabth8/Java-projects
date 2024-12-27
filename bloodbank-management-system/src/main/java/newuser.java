@@ -278,38 +278,36 @@ public class newuser extends JFrame {
 		pin = textField_2.getText();
 		email = textField_3.getText();
 		if(name.equals("") || dob.equals("") || pin.equals("") || email.equals("")){
-			JOptionPane.showMessageDialog(null, "            Fill in the details    ", "ERROR", JOptionPane.ERROR_MESSAGE);
 			return;
 		}
-		else {
-			try {
+		try {
 
-				Connection c = null;
-				Statement st = null;
-				ResultSet rs = null;
+			Connection c = null;
+			Statement st = null;
+			ResultSet rs = null;
 
-				String url = "jdbc:postgresql://localhost:5432/bloodbank";
-				String username1 = "postgres";
-				String password1 = "987987";
-				Class.forName("org.postgresql.Driver");
-				c = DriverManager.getConnection(url, username1, password1);
-				c.setAutoCommit(false);
-				st = c.createStatement();
+			String url = "jdbc:postgresql://localhost:5433/bloodbank";
+			String username1 = "postgres";
+			String password1 = "123";
+			Class.forName("org.postgresql.Driver");
+			c = DriverManager.getConnection(url, username1, password1);
+			c.setAutoCommit(false);
+			st = c.createStatement();
 
-				ResultSet rsq = null;
+			ResultSet rsq = null;
 //						String sql = "INSERT INTO logindetails VALUES('"+s1+"','"+s2+"','"+s4+"','"+s5+"');";
-				String sql = "insert into logindetails values('" + name + "','" + dob + "','" + pin + "','" + email + "');";
-				System.out.println(sql);
-				st.executeUpdate(sql);
-				username.main(null);
-				dispose();
+			String sql = "insert into logindetails values('" + name + "','" + dob + "','" + pin + "','" + email + "');";
+			System.out.println(sql);
+			st.executeUpdate(sql);
+			username.main(null);
+			dispose();
 
 
-				c.commit();
+			c.commit();
 
-			} catch (Exception ex) {
-				System.out.println(ex);
-			}
+		} catch (Exception ex) {
+			System.out.println(ex);
 		}
+
 	}
 }

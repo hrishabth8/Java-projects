@@ -55,18 +55,21 @@ public class BloodBankTable extends JFrame {
 
         String[] columns = {"Hospital ID", "Hospital Name", "Pincode", "Address",
                 "Phone No"};
-
         DefaultTableModel obj=new DefaultTableModel(columns,0);
 
         sqlconnect connection = new sqlconnect();
-        Connection con = connection.connect();
-        Statement st;
-        String query="";
         try {
-            st = con.createStatement();
-            query = "Select * from blood_bank";
+            Connection con = null;
+            Class.forName("org.postgresql.Driver");
+            String url = "jdbc:postgresql://localhost:5433/bloodbank";
+            String username1 = "postgres";
+            String password1 = "123";
+
+            con = DriverManager.getConnection(url, username1, password1);
+            con.setAutoCommit(false);
+            Statement st=con.createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM blood_bank");
             //System.out.println(st.executeQuery(query));
-            ResultSet rs = st.executeQuery(query);
             while (rs.next()) {
                 Object[] update =  {rs.getString(1),rs.getString(2),rs.getString(3),
                         rs.getString(4),rs.getString(5)};

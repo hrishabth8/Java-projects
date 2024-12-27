@@ -23,12 +23,16 @@ public class Mainframe extends JFrame {
 
 	
 	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
 				try {
 					Mainframe frame = new Mainframe();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
+			}
+		});
 	}
 
 	
@@ -47,18 +51,12 @@ public class Mainframe extends JFrame {
 		contentPane.add(lblNewLabel);
 
 
-
-
-
 		JButton btnNewButton = new JButton("Donate Blood");
 		btnNewButton.setBackground(new java.awt.Color(75, 128, 215));
 		btnNewButton.setForeground(new java.awt.Color(255, 255, 255));
 		btnNewButton.setFont(new Font("Lucida Grande", Font.BOLD | Font.ITALIC, 25));
 		btnNewButton.setBorder(new LineBorder(new Color(25, 102, 224), 2));
 		btnNewButton.setBounds(35, 245, 245, 75);
-
-
-
 		btnNewButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -103,15 +101,12 @@ public class Mainframe extends JFrame {
 		btnNewButton_hosp.setFont(new Font("Lucida Grande", Font.BOLD | Font.ITALIC, 25));
 		btnNewButton_hosp.setBorder(new LineBorder(new Color(25, 102, 224), 2));
 		btnNewButton_hosp.setBounds(180, 160, 245, 75);
-
-
 		btnNewButton_hosp.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
 				btnNewButton_hosp.setBackground(new java.awt.Color(25, 102, 224));
 				btnNewButton_hosp.setForeground(new java.awt.Color(255, 255, 255));
 				//btnNewButton.setBorder(BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255),1));
-
 			}
 			@Override
 			public void mouseExited(MouseEvent e) {
@@ -119,9 +114,7 @@ public class Mainframe extends JFrame {
 				btnNewButton_hosp.setBackground(new java.awt.Color(75, 128, 215));
 				btnNewButton_hosp.setForeground(new java.awt.Color(255, 255, 255));
 				//btnNewButton.setBorder(new EmptyBorder(1,1,1,1));
-
 			}
-
 		});
 		btnNewButton_hosp.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -131,17 +124,15 @@ public class Mainframe extends JFrame {
 		});
 		contentPane.add(btnNewButton_hosp);
 
-		contentPane.add(btnNewButton_hosp);
-
-
-
 
 		JButton btnNewButton_1 = new JButton("Request Blood");
 		btnNewButton_1.setBounds(315, 245, 245, 75);
 		btnNewButton_1.setFont(new Font("Lucida Grande", Font.BOLD | Font.ITALIC, 25));
 		btnNewButton_1.setBackground(new java.awt.Color(75, 128, 215));
 		btnNewButton_1.setForeground(new java.awt.Color(255, 255, 255));
-		btnNewButton_1.setBorder(new LineBorder(new Color(25, 102, 224), 2));
+		btnNewButton_1.setBorder(new LineBorder(new Color(25, 102, 224), 2,true));
+		contentPane.add(btnNewButton_1);
+
 		btnNewButton_1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -154,7 +145,6 @@ public class Mainframe extends JFrame {
 				btnNewButton_1.setBackground(new java.awt.Color(75, 128, 215));
 				btnNewButton_1.setForeground(new java.awt.Color(255, 255, 255));
 			}
-
 		});
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -162,7 +152,7 @@ public class Mainframe extends JFrame {
 				dispose();
 			}
 		});
-		contentPane.add(btnNewButton_1);
+
 
 		JButton btnNewButton_3 = new JButton("Logout");
 		btnNewButton_3.setBackground(new java.awt.Color(75, 128, 215));
@@ -170,9 +160,7 @@ public class Mainframe extends JFrame {
 		btnNewButton_3.setBorder(new LineBorder(new Color(25, 102, 224), 2));
 		btnNewButton_3.setFont(new Font("Lucida Grande", Font.BOLD | Font.ITALIC, 25));
 		btnNewButton_3.setBounds(495, 390, 118, 40);
-
-
-				btnNewButton_3.addMouseListener(new MouseAdapter() {
+		btnNewButton_3.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
 				btnNewButton_3.setBackground(new java.awt.Color(25, 102, 224));
@@ -197,7 +185,7 @@ public class Mainframe extends JFrame {
 			}
 		});
 		contentPane.add(btnNewButton_3);
-
+		contentPane.add(btnNewButton_3);
 
 
 		JButton btnNewButton_2 = new JButton("Change Password");
@@ -230,11 +218,10 @@ public class Mainframe extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
 					Change_password.main(null);
-//				} catch (EncryptedDocumentException e) {
-//
-//					e.printStackTrace();
-				}
-				catch (Exception e) {
+				} catch (EncryptedDocumentException e) {
+					
+					e.printStackTrace();
+				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
